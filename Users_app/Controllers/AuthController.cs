@@ -110,7 +110,7 @@ public class AuthController : ControllerBase
             {
                 new Claim(ClaimTypes.Name, user.Id.ToString())
             }),
-            Expires = DateTime.UtcNow.AddHours(1), // Token expiration time
+            Expires = DateTime.UtcNow.AddHours(24), // Token expiration time
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
 
