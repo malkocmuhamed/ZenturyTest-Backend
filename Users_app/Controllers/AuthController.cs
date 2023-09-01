@@ -40,7 +40,6 @@ public class AuthController : ControllerBase
         {
             // Create a login record with failed login attempt
             await CreateFailedLoginRecord(userLogin.UserName, userLogin.Password);
-
             return Unauthorized();
         }
 
@@ -82,18 +81,10 @@ public class AuthController : ControllerBase
     // Helper method to verify password
     private bool VerifyPassword(string enteredPassword, string storedPasswordHash)
     {
-        // Hash the entered password using the same method used during registration
-        //string enteredPasswordHash = HashPassword(enteredPassword);
-
-        // Compare the hashed passwords
         return enteredPassword == storedPasswordHash;
     }
     private string HashPassword(string password)
     {
-        // Use a strong and secure password hashing algorithm, such as bcrypt
-        // You'll need to install a package that supports the chosen hashing algorithm
-        // Here's an example using BCrypt.Net library
-        // Install-Package BCrypt.Net-Next
         return BCrypt.Net.BCrypt.HashPassword(password);
     }
 

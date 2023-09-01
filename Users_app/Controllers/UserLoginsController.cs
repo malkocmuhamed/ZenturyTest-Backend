@@ -61,46 +61,6 @@ public class UserLoginsController : ControllerBase
         return userLogin;
     }
 
-    // POST: api/UserLogins
-    [HttpPost]
-    public async Task<ActionResult<UserLogin>> PostUserLogin(UserLogin userLogin)
-    {
-        _context.UserLogins.Add(userLogin);
-        await _context.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(GetUserLogin), new { id = userLogin.Id }, userLogin);
-    }
-
-    // PUT: api/UserLogins/5
-    [HttpPut("{id}")]
-    public async Task<IActionResult> PutUserLogin(int id, UserLogin userLogin)
-    {
-        if (id != userLogin.Id)
-        {
-            return BadRequest();
-        }
-
-        _context.Entry(userLogin).State = EntityState.Modified;
-
-        try
-        {
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!UserLoginExists(id))
-            {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
-        }
-
-        return NoContent();
-    }
-
     // DELETE: api/UserLogins/5
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteUserLogin(int id)
