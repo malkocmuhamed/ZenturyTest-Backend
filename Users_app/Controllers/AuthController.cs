@@ -35,9 +35,8 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Login(UserLogin userLogin)
     {
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == userLogin.UserName);
-        string storedHashedPassword = user.PasswordHash;
 
-        if (user == null || !VerifyPassword(userLogin.Password, storedHashedPassword))
+        if (user == null || !VerifyPassword(userLogin.Password, user.PasswordHash))
         {
             // Create a login record with failed login attempt
             await CreateFailedLoginRecord(userLogin.UserName, userLogin.Password);

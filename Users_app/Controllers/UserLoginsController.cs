@@ -9,7 +9,7 @@ using Users_app.Models;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]
+//[Authorize]
 public class UserLoginsController : ControllerBase
 {
     private readonly UsersDBContext _context;
@@ -21,9 +21,30 @@ public class UserLoginsController : ControllerBase
 
     // GET: api/UserLogins
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<UserLogin>>> GetUserLogins()
+    public async Task<ActionResult<IEnumerable<UserLogin>>> GetAllUserLogins()
     {
         return await _context.UserLogins.ToListAsync();
+    }
+
+    // GET: api/UserLogins paging
+    [HttpGet("paging")]
+    public async Task<ActionResult<PaginatedResponse<UserLogin>>> GetUserLogins([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+    {
+        var totalCount = await _context.UserLogins.CountAsync();
+        var userLogins = await _context.UserLogins
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        var paginatedResponse = new PaginatedResponse<UserLogin>
+        {
+            Data = userLogins,
+            TotalCount = totalCount,
+            Page = page,
+            PageSize = pageSize
+        };
+
+        return paginatedResponse;
     }
 
     // GET: api/UserLogins/5

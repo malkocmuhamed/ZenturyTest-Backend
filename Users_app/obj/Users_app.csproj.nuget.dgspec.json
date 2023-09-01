@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Zentury\\ZenturyTest-Backend\\Users_app\\Users_app.csproj": {}
+    "E:\\Zentury\\ZenturyTest-Backend\\Users_app\\Users_app.csproj": {}
   },
   "projects": {
-    "C:\\Zentury\\ZenturyTest-Backend\\Users_app\\Users_app.csproj": {
+    "E:\\Zentury\\ZenturyTest-Backend\\Users_app\\Users_app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Zentury\\ZenturyTest-Backend\\Users_app\\Users_app.csproj",
+        "projectUniqueName": "E:\\Zentury\\ZenturyTest-Backend\\Users_app\\Users_app.csproj",
         "projectName": "Users_app",
-        "projectPath": "C:\\Zentury\\ZenturyTest-Backend\\Users_app\\Users_app.csproj",
+        "projectPath": "E:\\Zentury\\ZenturyTest-Backend\\Users_app\\Users_app.csproj",
         "packagesPath": "C:\\Users\\CPU Infotech\\.nuget\\packages\\",
-        "outputPath": "C:\\Zentury\\ZenturyTest-Backend\\Users_app\\obj\\",
+        "outputPath": "E:\\Zentury\\ZenturyTest-Backend\\Users_app\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
